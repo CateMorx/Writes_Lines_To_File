@@ -10,11 +10,13 @@ import tkinter as tk
 def write_file():
     #opens and writes to "my_file.txt"
     with open("my_file.txt", "w") as file: 
-#Prompts user for input
-#Writes the input in the file
-#Asks user if they want to input more lines
-#Allows user to input another line if Yes
-#Ends the program if No
+        #Prompts user for input
+        line = input(str("Enter line: "))
+        #Writes the input in the file
+        file.write(line + "\n")
+        #Asks user if they want to input more lines
+        #Allows user to input another line if Yes
+        #Ends the program if No
 
 #Calls Method
 
