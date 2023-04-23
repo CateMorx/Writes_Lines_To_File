@@ -57,5 +57,22 @@ def GUI():
     ]
     window = psg.Window("Initial Number Input", layout, finalize=True)
 
+     # Get a reference to the Graph widget
+    graph = window['graph']
+       # Loop indefinitely to create the animated gradient effect
+    while True:
+        for i in range(len(colors)):
+            for j in range(0, 360, 10):
+                # Draw a rectangle with the current color and angle
+                graph.DrawRectangle((0,0), (1200,1000), line_color='black', fill_color=colors[i])
+                # Draw the output text on the graph widget
+                graph.DrawText(output_text, (600 - (text_width/2), 500 - (text_height/2)), color='black', font=('Helvetica', 16))
+                # Update the PySimpleGUI window to show the new rectangle and text
+                window.Refresh()
+        event, values = window.read()
+        if event == psg.WINDOW_CLOSED:
+            window.close()
+            break
+
 #Calls Method
 GUI()
