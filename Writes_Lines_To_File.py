@@ -57,8 +57,17 @@ def GUI():
     ]
     window = psg.Window("Initial Number Input", layout, finalize=True)
 
-     # Get a reference to the Graph widget
+    # Get a reference to the Graph widget
     graph = window['graph']
+
+    # Get the width and height of the text
+    root = tk.Tk()
+    temp_label = tk.Label(root, text=output_text, font=('Helvetica', 16))
+    temp_label.pack_forget()
+    text_width = temp_label.winfo_reqwidth()
+    text_height = temp_label.winfo_reqheight()
+    root.destroy()
+
        # Loop indefinitely to create the animated gradient effect
     while True:
         for i in range(len(colors)):
@@ -69,10 +78,11 @@ def GUI():
                 graph.DrawText(output_text, (600 - (text_width/2), 500 - (text_height/2)), color='black', font=('Helvetica', 16))
                 # Update the PySimpleGUI window to show the new rectangle and text
                 window.Refresh()
-        event, values = window.read()
-        if event == psg.WINDOW_CLOSED:
+        # Check if window still exists
+        if not window.TKroot.winfo_exists():
             window.close()
             break
+
 
 #Calls Method
 GUI()
