@@ -15,8 +15,15 @@ def write_file():
         #Writes the input in the file
         file.write(line + "\n")
         #Asks user if they want to input more lines
+        more_lines = input(str("Are there more lines y/n? "))
         #Allows user to input another line if Yes
-        #Ends the program if No
+        while more_lines[0].lower() == 'y':
+            line = input(str("Enter line: "))
+            file.write(line + "\n")
+            more_lines = input(str("Are there more lines y/n? "))
+            #Ends the program if No
+            if more_lines[0].lower() == 'n':
+                break
 
 #Calls Method
 
