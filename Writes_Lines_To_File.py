@@ -45,6 +45,17 @@ def GUI():
     #Opens and reads the "my_file.txt" file
     with open("my_file.txt", "r") as read_file:
         output_text = read_file.read()
+    
+    #Instantiates the color for the animated gradient effect of the GUI
+    colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
+
+    # Create the PySimpleGUI window
+    layout = [
+        [psg.Column([
+            [psg.Graph((1200, 1000), (0, 0), (1200, 1000), background_color='black', key='graph')],
+        ], scrollable=True)]
+    ]
+    window = psg.Window("Initial Number Input", layout, finalize=True)
 
 #Calls Method
 GUI()
