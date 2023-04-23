@@ -16,17 +16,29 @@ def write_file():
         file.write(line + "\n")
         #Asks user if they want to input more lines
         more_lines = input(str("Are there more lines y/n? "))
+        #Does not accept invalid input and prompts user to only enter y or n
+        while not more_lines or more_lines[0].lower() not in ['y', 'n']:
+            more_lines=input(str("Invalid input, please only enter 'y', or 'n'"))
         #Allows user to input another line if Yes
         while more_lines[0].lower() == 'y':
             line = input(str("Enter line: "))
             file.write(line + "\n")
             more_lines = input(str("Are there more lines y/n? "))
+            #Does not accept invalid input and prompts user to only enter y or n
+            invalid_count = 0
+            while not more_lines or more_lines[0].lower() not in ['y', 'n']:
+                invalid_count += 1
+                if invalid_count >= 2:
+                    print("Invalid input, please only enter 'y', or 'n'")
+                    invalid_count = 0
+                else:
+                    more_lines = input("Invalid input, please only enter 'y', or 'n'")
             #Ends the program if No
             if more_lines[0].lower() == 'n':
                 break
 
 #Calls Method
-
+write_file()
 #Creates a Method to Display the "my_file.txt" file with GUI
 
 #Calls Method
