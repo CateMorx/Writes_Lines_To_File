@@ -39,6 +39,12 @@ def write_file():
 
 #Calls Method
 write_file()
+
 #Creates a Method to Display the "my_file.txt" file with GUI
+def GUI():
+    #Opens and reads the "my_file.txt" file
+    with open("my_file.txt", "r") as read_file:
+        output_text = read_file.read()
 
 #Calls Method
+GUI()
