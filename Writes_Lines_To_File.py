@@ -6,10 +6,10 @@
 import PySimpleGUI as psg
 import tkinter as tk
 
-#Creates Method that allows user to write to "my_file.txt" text file
+#Creates Method that allows user to write to "mylife.txt" text file
 def write_file():
-    #opens and writes to "my_file.txt"
-    with open("my_file.txt", "w") as file: 
+    #opens and writes to "mylife.txt"
+    with open("mylife.txt", "w") as file: 
         #Prompts user for input
         line = input(str("Enter line: "))
         #Writes the input in the file
@@ -40,10 +40,10 @@ def write_file():
 #Calls Method
 write_file()
 
-#Creates a Method to Display the "my_file.txt" file with GUI
+#Creates a Method to Display the "mylife.txt" file with GUI
 def GUI():
-    #Opens and reads the "my_file.txt" file
-    with open("my_file.txt", "r") as read_file:
+    #Opens and reads the "mylife.txt" file
+    with open("mylife.txt", "r") as read_file:
         output_text = read_file.read()
     
     #Instantiates the color for the animated gradient effect of the GUI
